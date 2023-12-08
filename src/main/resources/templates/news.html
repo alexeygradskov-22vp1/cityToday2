@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CityToday</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div>
+    <a th:href="@{/main}"><-Назад</a>
+</div>
+<div class="container m-5 p-3" style="background-color: #86b7fe">
+    <h1 th:text="${news.getText()}"></h1>
+    <div class="row mt-2">
+        <div class="col-4 mx-auto text-center"><img  width="400px" height="300px"
+                                                    th:src="@{${news.getImage().getPath()}}" alt="Картинка"></div>
+    </div>
+    <p class="mt-2" th:text="${news.getDescription()}"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:form="http://www.w3.org/1999/html" xmlns:input="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+<form th:action="@{/registration}" th:object="${userForm}" method="post">
+    <input th:field="*{login}" type="text" placeholder="Логин">
+    <input th:field="*{password}" type="text" placeholder="Пароль">
+    <input th:field="*{email}" type="text" placeholder="Электронная почта">
+    <input type="submit">
+</form>
+
+</body>
+</html>

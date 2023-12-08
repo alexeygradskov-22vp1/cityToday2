@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление новости</title>
+</head>
+<body>
+
+<form method="POST" enctype="multipart/form-data"
+      action="/news/write">
+    File to upload: <input type="file" name="image"><br /> Заголовок: <input
+        type="text" name="text"><br />Контент: <input
+        type="text" name="desc"><br /> <br /> <input type="submit"
+                                                     value="Upload">
+</form>
+</body>
+</html>

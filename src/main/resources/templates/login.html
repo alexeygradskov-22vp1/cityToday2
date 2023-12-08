@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Авторизация</title>
+</head>
+<body>
+<form th:action="login" name="login" th:object="${userForm}" method="post">
+    <input th:path="*{username}" name="username" placeholder="Логин">
+    <input th:path="*{password}" name="password" placeholder="Пароль">
+    <input type="submit" value="Войти">
+</form>
+</body>
+</html>
