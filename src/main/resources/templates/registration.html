@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
+    <link rel="stylesheet" href="/css/registration.css">
 </head>
 <body>
 <form th:action="@{/registration}" th:object="${userForm}" method="post">
@@ -11,6 +12,6 @@
     <input th:field="*{email}" type="text" placeholder="Электронная почта">
     <input type="submit">
 </form>
-
+<p th:if="${error_exists!=''}" th:text="${error_exists}" style="color: #bb2d3b"></p>
 </body>
 </html>

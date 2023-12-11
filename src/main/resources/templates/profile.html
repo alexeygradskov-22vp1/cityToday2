@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title> Профиль пользователя</title>
+    <link rel="stylesheet" href="/css/profile.css">
 </head>
 <body>
 <div><h1 th:text="${user.getLogin()}"></h1>
@@ -10,6 +11,8 @@
 <h2 th:text="'Дата регистрации:'+${user.getRegDate()}"></h2>
 <a  th:href="@{/administrate}" th:text="Администрирование"></a>
 <a  th:href="@{/moderate}" th:text="Модерирование"></a>
-
+<a onclick="window.location.href='http://localhost:8080/news/write'"class="top-left">Добавить новость</a>
+<button onclick="window.location.href ='http://localhost:8080/main' "class = "back">Вернуться в меню</button>
+<button onclick="window.location.href ='http://localhost:8080/login' "class = "exit">Выйти</button>
 </body>
 </html>

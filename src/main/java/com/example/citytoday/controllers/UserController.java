@@ -43,18 +43,19 @@ public class UserController {
         try {
             userService.create(user);
         } catch (BadCredentialsException e) {
+            model.addAttribute("error_exists", "Пользователь уже существует");
             return "registration";
         }
         return "redirect:/";
     }
+
+
 
     @GetMapping("/users/{username}")
     public String getProfilePage(@PathVariable String username, Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         User user = userService.getUserByLogin(username);
         model.addAttribute("user", user);
-
-
         return "profile";
     }
 

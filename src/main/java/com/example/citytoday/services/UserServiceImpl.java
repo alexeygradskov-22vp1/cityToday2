@@ -43,7 +43,7 @@ public class UserServiceImpl implements UserDetailsService {
             throw new BadCredentialsException("Password don't valid:\n" +
                     "1 digit \n 1 special character \n 1 alphabetic \n min 8 characters");
         }*/
-        user.setRoles(Collections.singleton(new Role(2, "ROLE_ADMIN")));
+        user.setRoles(Collections.singleton(new Role(0, "ROLE_USER")));
         user.setPassword(user.getPassword());
         user.setLocked(false);
         user.setRegDate(LocalDateTime.now());

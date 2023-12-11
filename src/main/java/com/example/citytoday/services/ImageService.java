@@ -12,7 +12,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 
 @Service
-public class ImageService {
+public class    ImageService {
     private final ImageRepository imageRepository;
 
     public ImageService(ImageRepository imageRepository) {

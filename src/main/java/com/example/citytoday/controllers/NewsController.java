@@ -6,6 +6,7 @@ import com.example.citytoday.services.ImageService;
 import com.example.citytoday.services.NewsService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +15,9 @@ import org.springframework.web.multipart.MultipartFile;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+
+
+
 
 @Controller
 public class NewsController {
@@ -31,6 +35,7 @@ public class NewsController {
         model.addAttribute("news", newsService.getApprovedNews());
         model.addAttribute("bckgndPath", "/images/background.jpg");
         model.addAttribute("time", LocalDateTime.now().toString());
+        model.addAttribute("username", SecurityContextHolder.getContext().getAuthentication().getName());
         return "main";
     }
 

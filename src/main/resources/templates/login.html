@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Авторизация</title>
+    <link rel="stylesheet" href="/css/login.css">
 </head>
 <body>
 <form th:action="login" name="login" th:object="${userForm}" method="post">
     <input th:path="*{username}" name="username" placeholder="Логин">
     <input th:path="*{password}" name="password" placeholder="Пароль">
-    <input type="submit" value="Войти">
+    <input type="submit" class = "top-left" value="Войти">
+    <a th:href="@{/registration}" class="top-left">Зарегистрироваться</a>
 </form>
 </body>
 </html>

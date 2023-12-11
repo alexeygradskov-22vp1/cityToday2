@@ -22,7 +22,7 @@ public class News {
     @Size(message = "Не менее 10 символов", min = 10)
     private String text;
     @Column(name = "description")
-    @Size(message = "Не менее 50 символов", min = 50)
+    @Size(message = "Не менее 50 символов", min = 250)
     private String description;
     @Column(name = "status")
     private String status;

@@ -5,11 +5,12 @@
     <title>Главная</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
 <div ><span style="margin-left: 20px; font-size: 28px;">Официальный сайт города Беково</span> </div><div class="float-end"><span style="font-size: 28px" id="time" th:text="${time}"></span></div>
 <div th:style="'background-image:url(' + ${bckgndPath} + '); height: 380px;'">
-    <div style="width: 200px; height: 200px; margin-left: 550px "><p style="font-size: 20px; color: white">Глава
+    <div style="width: 200px; height: 200px; margin-left: 550px; "><p style="font-size: 20px; color: black">Глава
         администрации</p>
         <img style="width: 200px; height: 200px;" th:src="@{/images/glava.jpg}">
         <p style="font-size: 20px; color: white">Светлана Кудаченкова</p>
@@ -18,7 +19,7 @@
 <div style="background-color: #86b7fe; padding-left: 300px; overflow-y: auto; height: 350px">
 <table>
         <tr th:each="el: ${news}" >
-            <td style="border: white 2px solid" ><a th:href="@{/news/${el.getId()}}"><div><p th:text="${el.getText()}">Заголовок</p>
+            <td style="border: white 2px solid" ><a th:href="@{'/news/'+${el.getId()}}"><div><p th:text="${el.getText()}">Заголовок</p>
             <img width="150px" height="100px"
                      th:src="@{${el.getImage().getPath()}}" alt="Картинка">
                 <p th:text="${el.getDescription().length()>99?el.getDescription().substring(0,99)+'...':el.getDescription()}">
@@ -43,5 +44,7 @@
         setInterval(updateTime, 1000);
     });
 </script>
+<a th:href="@{'/users/'+${username}}">Профиль</a>
+
 </body>
 </html>
