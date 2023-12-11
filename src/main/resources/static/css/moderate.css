@@ -1,0 +1,36 @@
+body {
+    background-color: #f0f0f0;
+}
+
+.container {
+    margin-top: 50px;
+    width: 80%;
+    height: 720px;
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    margin-bottom: 20px;
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #ddd;
+}
+
+th, td {
+    padding: 15px;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: #0066cc;
+    font-weight: bold;
+}
+
+.btn-success,
+.btn-danger {
+    padding: 8px 12px;
+}
