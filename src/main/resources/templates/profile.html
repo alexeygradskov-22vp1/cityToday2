@@ -8,7 +8,7 @@
 <body>
 <div><h1 th:text="${user.getLogin()}"></h1>
 <h2 th:text="${user.getEmail()}"></h2></div>
-<h2 th:text="'Дата регистрации:'+${user.getRegDate()}"></h2>
+<h2 th:text="'Дата регистрации:'+${#temporals.format(user.getRegDate(), 'dd MMMM yyyy')}"></h2>
 <a  th:href="@{/administrate}" th:text="Администрирование"></a>
 <a  th:href="@{/moderate}" th:text="Модерирование"></a>
 <a onclick="window.location.href='http://localhost:8080/news/write'"class="top-left">Добавить новость</a>
