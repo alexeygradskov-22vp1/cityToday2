@@ -40,7 +40,7 @@ public class NewsController {
     }
 
     @PostMapping("/news/write")
-    public String write(@RequestParam("text") String text,@RequestParam("desc") String desc, @RequestParam("image")MultipartFile file){
+    public String write(@RequestParam("text") String text, @RequestParam("desc") String desc, @RequestParam("image") MultipartFile file) {
         News news = new News();
         news.setText(text);
         news.setDescription(desc);
@@ -52,40 +52,44 @@ public class NewsController {
         newsService.create(news);
         return "redirect:/main";
     }
+
     @GetMapping("/news/write")
-    public String addNews(Model model){
-        model.addAttribute("newsForm",new News());
+    public String addNews(Model model) {
+        model.addAttribute("newsForm", new News());
         return "addNews";
     }
 
     @GetMapping("/news/{news_id}")
-    public String getNewsPage(@PathVariable("news_id") Long newsID, Model model ){
+    public String getNewsPage(@PathVariable("news_id") Long newsID, Model model) {
         newsService.counterUpdate(newsID);
         News news = newsService.getById(newsID);
-        model.addAttribute("news",news);
+        model.addAttribute("news", news);
 
         return "news";
     }
 
     @PostMapping("/news/approve/{news_id}")
-    public String approveNews(@PathVariable("news_id") Long id){
+    public String approveNews(@PathVariable("news_id") Long id) {
         newsService.approve(id);
         return "redirect:/main";
     }
+
     @GetMapping("/moderate")
-    public String getModeratePage(Model model){
+    public String getModeratePage(Model model) {
         List<News> news = newsService.getWaitingNews();
-        model.addAttribute("news",news);
+        model.addAttribute("news", news);
         return "moderate";
     }
+
     @PostMapping("/news/delete/{news_id}")
-    public String deleteNews(@PathVariable("news_id") Long id){
+    public String deleteNews(@PathVariable("news_id") Long id) {
         newsService.delete(id);
         return "redirect:/moderate";
     }
+
     @RequestMapping("/time")
     @ResponseBody
-    public String getTime(){
+    public String getTime() {
         return LocalDateTime.now().format(DateTimeFormatter.ofPattern("dd MMMM  yyyy HH:mm:ss")).toString();
     }
 }

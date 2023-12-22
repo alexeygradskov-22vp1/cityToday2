@@ -5,21 +5,25 @@
     <title>Главная</title>
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
-    <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-<div ><span style="margin-left: 20px; font-size: 28px;">Официальный сайт города Беково</span> </div><div class="float-end"><span style="font-size: 28px" id="time" th:text="${time}"></span></div>
-<div th:style="'background-image:url(' + ${bckgndPath} + '); height: 380px;'">
-    <div style="width: 200px; height: 200px; margin-left: 550px; "><p style="font-size: 20px; color: black">Глава
-        администрации</p>
-        <img style="width: 200px; height: 200px;" th:src="@{/images/glava.jpg}">
-        <p style="font-size: 20px; color: white">Светлана Кудаченкова</p>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+        <a class="navbar-brand" th:href="@{/main}">Избавим вас от информационного шума</a>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-link" th:href="@{/login}">Войти</a>
+                <a class="nav-link" th:href="@{/registration}">Зарегистрироваться</a>
+                <a class="nav-link " th:href="@{/news/write}"  >Предложить новость</a>
+                <a class="nav-link " th:href="@{'/users/'+${username}}" >Личный кабинет</a>
+            </div>
+            <span th:text="${time}" id="time" ></span>
+        </div>
     </div>
-</div>
-<div style="background-color: #86b7fe; padding-left: 300px; overflow-y: auto; height: 350px">
+</nav>
 <table>
         <tr th:each="el: ${news}" >
-            <td style="border: white 2px solid" ><a th:href="@{'/news/'+${el.getId()}}"><div><p th:text="${el.getText()}">Заголовок</p>
+            <td style="border: white 2px solid" ><a th:href="@{/news/${el.getId()}}"><div><p th:text="${el.getText()}">Заголовок</p>
             <img width="150px" height="100px"
                      th:src="@{${el.getImage().getPath()}}" alt="Картинка">
                 <p th:text="${el.getDescription().length()>99?el.getDescription().substring(0,99)+'...':el.getDescription()}">
@@ -28,6 +32,7 @@
         </tr>
 </table>
 </div>
+
 <script>
     $(document).ready(function () {
         function updateTime() {
@@ -44,7 +49,5 @@
         setInterval(updateTime, 1000);
     });
 </script>
-<a th:href="@{'/users/'+${username}}">Профиль</a>
-
 </body>
 </html>

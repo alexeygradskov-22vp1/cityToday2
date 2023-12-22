@@ -1,22 +1,20 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Меню администрирования</title>
-        <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
-        <link rel="stylesheet" href="/css/administration.css">
-    </head>
-    <body>
-    <div class="container m-auto mt-5 text-center" style="background-color: #86b7fe; width: 80%; height: 720px; overflow-y: auto">
-        <table>
-            <tr th:each="element: ${users}">
-                <td style="width: 90%"><a th:href="'/users/'+${element.getLogin()}" th:text="${element.getLogin()}">Заголовок</a></td>
-                <td><form  th:action="'/users/block/'+${element.getId()}" th:method="post" ><input  class="btn bg-warning" value="Заблокировать" type="submit"></form></td>
-                <td ><form th:action="'/users/delete/'+${element.getId()}" th:method="post"><input class="btn btn-danger" value="Удалить" type="submit"></form></td>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Меню администрирования</title>
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
+</head>
+<body>
+<div class="container m-auto mt-5 text-center" style="width: 80%; height: 720px; overflow-y: auto">
+    <table class="table">
+        <tr th:each="element: ${users}">
+            <td style="width: 90%"><a th:href="'/users/'+${element.getLogin()}" th:text="${element.getLogin()}">Заголовок</a></td>
+            <td><form  th:action="'/users/block/'+${element.getId()}" th:method="post" ><input  class="btn bg-warning" value="Заблокировать" type="submit"></form></td>
+            <td ><form th:action="'/users/delete/'+${element.getId()}" th:method="post"><input class="btn btn-danger" value="Удалить" type="submit"></form></td>
 
-            </tr>
-        </table>
-    </div>
-    </body>
-    </html>
-    <!--страница администрирования-->
+        </tr>
+    </table>
+</div>
+</body>
+</html>

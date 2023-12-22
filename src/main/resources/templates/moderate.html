@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="/css/moderate.css">
 </head>
 <body>
-<div class="container m-auto mt-5 text-center" style="background-color: #86b7fe; width: 80%; height: 720px; overflow-y: auto">
-<table>
+<div class="container m-auto mt-5 text-center" style="width: 80%; height: 720px; overflow-y: auto">
+<table class="table">
 <tr th:each="element: ${news}">
   <td style="width: 90%"><a th:href="'/news/'+${element.getId()}" th:text="${element.getText()}">Заголовок</a></td>
   <td><form  th:action="'/news/approve/'+${element.getId()}" th:method="put" ><input  class="btn btn-success" value="Одобрить" type="submit"></form></td>

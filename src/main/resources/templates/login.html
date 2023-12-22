@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Авторизация</title>
-    <link rel="stylesheet" href="/css/login.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-<form th:action="login" name="login" th:object="${userForm}" method="post">
+<div class="d-flex justify-content-center">
+<form class="mt-5" th:action="login" name="login" th:object="${userForm}" method="post">
     <input th:path="*{username}" name="username" placeholder="Логин">
-    <input th:path="*{password}" name="password" placeholder="Пароль">
-    <input type="submit" class = "top-left" value="Войти">
-    <a th:href="@{/registration}" class="top-left">Зарегистрироваться</a>
+    <br>
+    <input th:path="*{password}" class="mt-2" name="password" placeholder="Пароль">
+    <br>
+    <input type="submit" class="btn mt-2 ms-5"  value="Войти">
 </form>
+</div>
 </body>
 </html>
-// страница авторизации

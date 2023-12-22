@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Добавление новости</title>
-    <link rel="stylesheet" href="/css/news.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-
+<div class="d-flex justify-content-center">
 <form method="POST" enctype="multipart/form-data"
       action="/news/write">
-    File to upload: <input type="file" name="image"><br /> Заголовок: <input
-        type="text" name="text"><br />Контент: <input
-        type="text" name="desc"><br /> <br /> <input type="submit"
+    File to upload: <input type="file" width="100px" class="form-control" name="image"><br /> Заголовок: <input
+        type="text" width="100px" class="form-control" name="text"><br />Контент: <input
+        type="text" width="100px" class="form-control" name="desc"><br /> <br /> <input class="btn" type="submit"
                                                      value="Upload">
 </form>
+</div>
 </body>
 </html>
-<!--страница добавления новостей-->

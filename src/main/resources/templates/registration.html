@@ -3,15 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Регистрация</title>
-    <link rel="stylesheet" href="/css/registration.css">
+    <link rel="stylesheet" th:href="@{/css/bootstrap.css}">
 </head>
 <body>
-<form th:action="@{/registration}" th:object="${userForm}" method="post">
+<div class="d-flex justify-content-center">
+<form class="mt-5" th:action="@{/registration}" th:object="${userForm}" method="post">
     <input th:field="*{login}" type="text" placeholder="Логин">
-    <input th:field="*{password}" type="text" placeholder="Пароль">
-    <input th:field="*{email}" type="text" placeholder="Электронная почта">
-    <input type="submit">
+    <br>
+    <input th:field="*{password}" class="mt-2" type="text" placeholder="Пароль">
+    <br>
+    <input th:field="*{email}" class="mt-2 " type="text" placeholder="Электронная почта">
+    <br>
+    <input type="submit" class="btn mt-2 ms-5">
 </form>
 <p th:if="${error_exists!=''}" th:text="${error_exists}" style="color: #bb2d3b"></p>
+</div>
 </body>
 </html>
