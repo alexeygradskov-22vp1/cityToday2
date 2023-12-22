@@ -33,7 +33,6 @@ public class NewsController {
     @GetMapping("/main")
     public String getMainPage(Model model) {
         model.addAttribute("news", newsService.getApprovedNews());
-        model.addAttribute("bckgndPath", "/images/background.jpg");
         model.addAttribute("time", LocalDateTime.now().toString());
         model.addAttribute("username", SecurityContextHolder.getContext().getAuthentication().getName());
         return "main";
