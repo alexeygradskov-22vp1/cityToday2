@@ -26,7 +26,7 @@ public class    ImageService {
         newImg.setPath("src/main/resources/static/images/"+name+".jpg");
         Logger logger = LoggerFactory.getLogger(ImageService.class);
         if (!file.isEmpty()) {
-            logger.info("Тут");
+
             try {
                 imageRepository.save(newImg);
                 byte[] bytes = file.getBytes();

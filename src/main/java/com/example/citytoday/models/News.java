@@ -6,7 +6,9 @@ import lombok.Setter;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Size;
-
+/*
+Класс модель Новости
+ */
 @Entity
 @Table(name = "news")
 @Getter
@@ -30,4 +32,5 @@ public class News {
     private String dateTime;
     @Column(name = "count_of_guests")
     private Long count;
+
 }
